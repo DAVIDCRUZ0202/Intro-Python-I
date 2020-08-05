@@ -30,3 +30,31 @@ it should use today’s date to get the month and year.
 import sys
 import calendar
 from datetime import datetime
+
+# how do we figure out the number of arguments that are passed in to the program?
+#sys.argv prints all given arguments
+l = len(sys.argv)
+
+if l == 1:
+  # then no args were passed in
+  month = datetime.now().month
+  year = datetime.now().year
+
+  # render calendar
+  cal = calendar.TextCalendar()
+
+  cal.prmonth(year, month)
+if l == 2:
+  # then 1 arg was passed in
+  month = int(sys.argv[1])
+  year = datetime.now().year
+  # render calendar
+  cal = calendar.TextCalendar()
+  cal.prmonth(year, month)
+if l == 3:
+  # then 2 arg was passed in
+  month = int(sys.argv[1])
+  year = int(sys.argv[2])
+  # render calendar
+  cal = calendar.TextCalendar()
+  cal.prmonth(year, month)
