@@ -39,22 +39,21 @@ if l == 1:
   # then no args were passed in
   month = datetime.now().month
   year = datetime.now().year
-
-  # render calendar
-  cal = calendar.TextCalendar()
-
-  cal.prmonth(year, month)
-if l == 2:
+elif l == 2:
   # then 1 arg was passed in
   month = int(sys.argv[1])
   year = datetime.now().year
-  # render calendar
-  cal = calendar.TextCalendar()
-  cal.prmonth(year, month)
-if l == 3:
+elif l == 3:
   # then 2 arg was passed in
   month = int(sys.argv[1])
   year = int(sys.argv[2])
-  # render calendar
-  cal = calendar.TextCalendar()
-  cal.prmonth(year, month)
+
+else:
+  print("Usage: cal.py [month] [year]")
+  #exit program
+  sys.exit(1)
+
+#init calender
+cal = calendar.TextCalendar()
+#print calendar
+cal.prmonth(year, month)
